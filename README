@@ -1,0 +1,40 @@
+NAME
+    Any::MooseX::SimpleConfig - MooseX::SimpleConfig for Any::Moose
+
+SYNOPSIS
+      ## A YAML configfile named /etc/my_app.yaml:
+      foo: bar
+      baz: 123
+
+      ## In your class
+      package My::App;
+      use Moose;
+
+      with 'Any::MooseX::SimpleConfig';
+
+      has 'foo' => (is => 'ro', isa => 'Str', required => 1);
+      has 'baz'  => (is => 'rw', isa => 'Int', required => 1);
+
+      # ... rest of the class here
+
+      ## in your script
+      #!/usr/bin/Perl
+      use My::App;
+
+      my $app = My::App->new_with_config(configfile => '/etc/my_app.yaml');
+      # ... rest of the script here
+      ####################
+      ###### combined with MooseX::Getopt:
+
+SEE ALSO
+    MooseX::SimpleConfig
+
+AUTHOR
+    Kazuhiro Osawa <yappo <at> shibuya <döt> pl>
+
+    And MooseX::SimpleConfig author Brandon L. Black
+
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
